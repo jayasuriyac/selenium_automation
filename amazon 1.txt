@@ -1,0 +1,56 @@
+package org.samp;
+
+import java.awt.AWTException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class MavSamp {
+	public static void main(String[] args) throws InterruptedException, AWTException {
+	WebDriver driver = new ChromeDriver();
+	driver.manage().window().maximize();
+	Thread.sleep(2000);
+	driver.get("https://www.amazon.in/");//get website
+	Actions action = new Actions(driver);
+	action.click(driver.findElement(By.xpath("//select[@id='searchDropdownBox']"))).perform();//get dropdown
+	for(int i=0; i<=15; i++) { //select option = electronics
+	action.keyDown(Keys.ARROW_DOWN).perform();
+	action.keyUp(Keys.ARROW_DOWN).perform();
+	}
+	action.keyDown(Keys.ENTER).perform();
+	action.keyUp(Keys.ENTER).perform();
+	Thread.sleep(5000);
+	WebElement searchbox = driver.findElement(By.id("twotabsearchtextbox"));
+	searchbox.sendKeys("phones");
+	driver.findElement(By.id("nav-search-submit-button")).click();//searching as phones
+	WebElement oneplus = driver.findElement(By.xpath("(//i[@class='a-icon a-icon-checkbox'])[6]"));//choosing brand in check box
+	oneplus.click();
+	Thread.sleep(5000);
+	List<WebElement> lists = driver.findElements(By.xpath("//span[@class='a-size-medium a-color-base a-text-normal']"));
+	for(int i=0;i<lists.size();i++) {
+		String ip = lists.get(i).getText();
+		System.out.println(ip);//print all mobile item names
+	}
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("(//span[@class='a-size-medium a-color-base a-text-normal'])[1]")).click();
+	Set<String> mobpage = driver.getWindowHandles();
+	List<String> li = new ArrayList<String>();
+	Thread.sleep(3000);
+	li.addAll(mobpage);//handiling of next window
+	driver.switchTo().window(li.get(1));
+	Thread.sleep(3000);
+	WebElement addcart = driver.findElement(By.id("add-to-cart-button"));
+	addcart.click();// performing in next window
+	Thread.sleep(9000);
+	driver.close();
+	Thread.sleep(9000);
+	driver.quit();
+}
+}

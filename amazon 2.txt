@@ -1,0 +1,54 @@
+package org.amazon;
+
+import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class amazz {
+	WebDriver driver = new ChromeDriver();
+	@BeforeTest
+	public void test1() {
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://www.amazon.in/");
+	}
+	@Test
+	public void test2() {
+		Actions action = new Actions(driver);
+		WebElement search = driver.findElement(By.id("twotabsearchtextbox"));
+		search.sendKeys("Headpnones");//searching product
+		action.keyDown(Keys.ENTER).perform();
+		action.keyUp(Keys.ENTER).perform();
+	}
+	@Test
+	public void test3() {
+		driver.findElement(By.xpath("(//span[@class='a-price-whole'])[3]")).click();
+	}
+	@AfterTest
+	public void test4() throws InterruptedException {
+		Thread.sleep(10000);
+		driver.close();
+		Thread.sleep(10000);
+		driver.quit();
+	}
+}
+
+
+Knowledge and learnings in popular test automation frameworks like Selenium WebDriver, Maven, JUnit, TestNG, and Cucumber.
+Ability to plan and develop test cases which tackle various conditions and scenarios.
+Effectively managing test data, including input data and predicted outcomes
+Able to organize and run tests using test frameworks such as JUnit or TestNG.
+Strong knowledge of CSS and XPath selectors for pinpointing web items, as well as the ability to select the right locators for various cases for ensuring automation script
+Goodcommunication skills in English,both verbally and in writing, enabling fair reporting and collaboration with team members and stakeholders.
+Knowledge with debugging techniques and tools using Java programming language.
+Knowledge of Object-oriented programming concepts to create maintainable and reusable code.
+Having the ability to recognize test scenarios, evaluate requirements, and objectively create test cases.
+Good understanding in software testing such as SDLC concept, Smoke testing, Functional testing, Integration testing, Software Test Life Cycle.
+

@@ -39,16 +39,3 @@ public class amazz {
 		driver.quit();
 	}
 }
-
-
-Knowledge and learnings in popular test automation frameworks like Selenium WebDriver, Maven, JUnit, TestNG, and Cucumber.
-Ability to plan and develop test cases which tackle various conditions and scenarios.
-Effectively managing test data, including input data and predicted outcomes
-Able to organize and run tests using test frameworks such as JUnit or TestNG.
-Strong knowledge of CSS and XPath selectors for pinpointing web items, as well as the ability to select the right locators for various cases for ensuring automation script
-Goodcommunication skills in English,both verbally and in writing, enabling fair reporting and collaboration with team members and stakeholders.
-Knowledge with debugging techniques and tools using Java programming language.
-Knowledge of Object-oriented programming concepts to create maintainable and reusable code.
-Having the ability to recognize test scenarios, evaluate requirements, and objectively create test cases.
-Good understanding in software testing such as SDLC concept, Smoke testing, Functional testing, Integration testing, Software Test Life Cycle.
-
